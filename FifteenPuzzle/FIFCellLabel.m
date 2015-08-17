@@ -40,13 +40,14 @@ static const NSInteger maxDistance = 6;
     [self setTextAlignment:NSTextAlignmentCenter];
     [self setNumberOfLines:1];
     [self setAdjustsFontSizeToFitWidth:YES];
+    [self setUserInteractionEnabled:YES];
 }
 
 
 - (void)setNumber:(NSInteger)number {
     _number = number;
     if (number != -1)
-        [self setText:[NSString stringWithFormat:@"%lu", number]];
+        [self setText:[NSString stringWithFormat:@"%lu", (long)number]];
     else
         [self setText:@""];
 }
@@ -55,7 +56,7 @@ static const NSInteger maxDistance = 6;
     NSInteger distance = labs(((realNumber - 1) % 4) - ((self.number - 1) % 4)) + labs(((realNumber - 1) / 4) - ((self.number - 1) / 4));
     CGFloat red = (1.0 / maxDistance) * distance;
     CGFloat green = 1.0 - (1.0 / maxDistance) * distance;
-    self.backgroundColor = [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0];
+    self.layer.backgroundColor = [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0].CGColor;
 }
 
 

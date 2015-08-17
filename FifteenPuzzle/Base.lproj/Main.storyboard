@@ -32,9 +32,9 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXf-gm-XiK">
-                                <rect key="frame" x="328" y="40" width="50" height="50"/>
+                                <rect key="frame" x="338" y="40" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="jRF-87-7vI"/>
+                                    <constraint firstAttribute="height" constant="40" id="jRF-87-7vI"/>
                                     <constraint firstAttribute="width" secondItem="wXf-gm-XiK" secondAttribute="height" multiplier="1:1" id="uDw-zN-7BF"/>
                                 </constraints>
                                 <state key="normal" image="restart">
@@ -44,13 +44,22 @@
                                     <action selector="restartButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eXf-Y9-jaW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of steps made: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a6-Ys-Jbl">
+                                <rect key="frame" x="105" y="48.5" width="204" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IUS-4I-taU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3a6-Ys-Jbl" secondAttribute="bottom" id="5M2-xj-VJa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wXf-gm-XiK" secondAttribute="trailing" constant="20" id="BEd-tb-KNg"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="IUS-4I-taU" secondAttribute="trailing" id="IOC-z8-vt6"/>
+                            <constraint firstItem="3a6-Ys-Jbl" firstAttribute="centerY" secondItem="wXf-gm-XiK" secondAttribute="centerY" id="KME-rr-l9t"/>
                             <constraint firstAttribute="centerY" secondItem="IUS-4I-taU" secondAttribute="centerY" id="Kch-Vr-qYU"/>
                             <constraint firstItem="IUS-4I-taU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="QiK-k9-dr9"/>
+                            <constraint firstAttribute="centerX" secondItem="3a6-Ys-Jbl" secondAttribute="centerX" id="Sgm-Lb-D81"/>
                             <constraint firstAttribute="centerX" secondItem="IUS-4I-taU" secondAttribute="centerX" id="d92-jE-lmf"/>
                             <constraint firstItem="IUS-4I-taU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wXf-gm-XiK" secondAttribute="bottom" id="hkW-Rf-ngV"/>
                             <constraint firstItem="wXf-gm-XiK" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="t3h-tv-jPS"/>
@@ -59,6 +68,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="mazeView" destination="IUS-4I-taU" id="ff8-Ly-jCV"/>
+                        <outlet property="stepsLabel" destination="3a6-Ys-Jbl" id="V0n-S2-B0g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

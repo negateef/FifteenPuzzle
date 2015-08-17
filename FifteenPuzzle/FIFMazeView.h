@@ -10,7 +10,10 @@
 
 @protocol FIFMazeDelegate <NSObject>
 
+@optional
+
 - (void)mazeChanged;
+- (void)mazeCompleted;
 
 @end
 
