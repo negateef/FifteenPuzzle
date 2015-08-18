@@ -50,6 +50,7 @@
                                                        delegate:self
                                               cancelButtonTitle:@"Done"
                                               otherButtonTitles:nil];
+    
     [alertView show];
 }
 
@@ -62,6 +63,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == alertView.cancelButtonIndex) {
+        self.numberOfSteps = 0;
         [self.mazeView resetMaze];
     }
 }

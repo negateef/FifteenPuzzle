@@ -13,6 +13,7 @@
 @interface FIFMazeView()
 
 @property (nonatomic, strong) NSMutableArray *mazeState;
+@property (nonatomic, assign) BOOL isCompleted;
 
 @end
 
@@ -58,6 +59,7 @@
 }
 
 - (void)customInit {
+    self.isCompleted = NO;
     UISwipeGestureRecognizer *leftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     [leftRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self addGestureRecognizer:leftRecognizer];
@@ -142,13 +144,23 @@
     NSInteger prevRow = index / 4;
     NSInteger prevCol = index % 4;
     
-    if (labs(row - prevRow) + labs(col - prevCol) == 1)
-        [self moveCellWithIndex:index toIndex:blankIndex];
+    if (prevRow == row) {
+        NSInteger addCol = col < prevCol ? 1 : -1;
+        for (NSInteger i = col; i != prevCol; i += addCol)
+            [self moveCellWithIndex:row * 4 + i toIndex:row * 4 + i + addCol];
+    }
+    
+    if (prevCol == col) {
+        NSInteger addRow = row < prevRow ? 1 : -1;
+        for (NSInteger i = row; i != prevRow; i += addRow)
+            [self moveCellWithIndex:i * 4 + col toIndex:(i + addRow) * 4 + col];
+    }
 }
 
 #pragma mark - Interface
 
 - (void)resetMaze {
+    self.isCompleted = NO;
     [self generateMaze];
     [self setNeedsLayout];
     [self layoutIfNeeded];
@@ -165,9 +177,13 @@
         [self layoutIfNeeded];
     } completion:^(BOOL finished) {
         if ([self completed]) {
-            [self.delegate mazeCompleted];
+            if (!self.isCompleted) {
+                [self.delegate mazeCompleted];
+                self.isCompleted = YES;
+            }
         }
     }];
+    
 }
 
 - (NSInteger)indexOfCellWithNumber:(NSInteger)number {
@@ -194,9 +210,9 @@
         [self.mazeState addObject:cellLabel];
     }
     
-    do {
-        [self.mazeState shuffle];
-    } while (![self solvable]);
+//    do {
+//        [self.mazeState shuffle];
+//    } while (![self solvable]);
 }
 
 - (BOOL)solvable {

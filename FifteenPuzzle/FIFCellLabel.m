@@ -57,6 +57,7 @@ static const NSInteger maxDistance = 6;
     CGFloat red = (1.0 / maxDistance) * distance;
     CGFloat green = 1.0 - (1.0 / maxDistance) * distance;
     self.layer.backgroundColor = [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0].CGColor;
+//    self.backgroundColor = [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0];
 }
 
 
