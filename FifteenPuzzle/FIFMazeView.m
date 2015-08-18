@@ -10,6 +10,9 @@
 #import "FIFCellLabel.h"
 #import "NSMutableArray+FIFShuffling.h"
 
+static const CGFloat animationDuration = 0.3;
+static const CGFloat resetAnimationDuration = 1.0;
+
 @interface FIFMazeView()
 
 @property (nonatomic, strong) NSMutableArray *mazeState;
@@ -82,8 +85,11 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.cellSize = MIN(self.cellSize, self.frame.size.width / 4.0);
-    self.cellSize = MIN(self.cellSize, self.frame.size.height / 4.0);
+    
+    CGFloat minDistance = 3.0;
+    
+    self.cellSize = MIN(self.cellSize, self.frame.size.width / 4.0 - 3 * minDistance);
+    self.cellSize = MIN(self.cellSize, self.frame.size.height / 4.0 - 3 * minDistance);
     
     CGFloat freeWidth = (self.frame.size.width - 4 * self.cellSize) / 3.0;
     CGFloat freeHeight = (self.frame.size.height - 4 * self.cellSize) / 3.0;
@@ -126,7 +132,9 @@
     
     if (prevRow >= 0 && prevRow < 4 && prevCol >= 0 && prevCol < 4) {
         NSInteger prevIndex = prevRow * 4 + prevCol;
-        [self moveCellWithIndex:prevIndex toIndex:blankIndex];
+        [self.mazeState exchangeObjectAtIndex:prevIndex withObjectAtIndex:blankIndex];
+        [self.delegate mazeChanged];
+        [self animateCellsWithDuration:animationDuration];
     }
 }
 
@@ -146,33 +154,36 @@
     
     if (prevRow == row) {
         NSInteger addCol = col < prevCol ? 1 : -1;
-        for (NSInteger i = col; i != prevCol; i += addCol)
-            [self moveCellWithIndex:row * 4 + i toIndex:row * 4 + i + addCol];
+        for (NSInteger i = col; i != prevCol; i += addCol) {
+            [self.mazeState exchangeObjectAtIndex:row * 4 + i withObjectAtIndex:row * 4 + i + addCol];
+            [self.delegate mazeChanged];
+        }
+        [self animateCellsWithDuration:animationDuration];
     }
     
     if (prevCol == col) {
         NSInteger addRow = row < prevRow ? 1 : -1;
-        for (NSInteger i = row; i != prevRow; i += addRow)
-            [self moveCellWithIndex:i * 4 + col toIndex:(i + addRow) * 4 + col];
+        for (NSInteger i = row; i != prevRow; i += addRow) {
+            [self.mazeState exchangeObjectAtIndex:i * 4 + col withObjectAtIndex:(i + addRow) * 4 + col];
+            [self.delegate mazeChanged];
+        }
+        [self animateCellsWithDuration:animationDuration];
     }
 }
 
-#pragma mark - Interface
+#pragma mark - Interface methods
 
 - (void)resetMaze {
     self.isCompleted = NO;
     [self generateMaze];
-    [self setNeedsLayout];
-    [self layoutIfNeeded];
+    [self animateCellsWithDuration:resetAnimationDuration];
 }
 
 
 #pragma mark - Helper methods
 
-- (void)moveCellWithIndex:(NSInteger)prevIndex toIndex:(NSInteger)newIndex {
-    [self.delegate mazeChanged];
-    [self.mazeState exchangeObjectAtIndex:prevIndex withObjectAtIndex:newIndex];
-    [UIView animateWithDuration:0.3 animations:^{
+- (void)animateCellsWithDuration:(CGFloat)duration {
+    [UIView animateWithDuration:duration animations:^{
         [self setNeedsLayout];
         [self layoutIfNeeded];
     } completion:^(BOOL finished) {
@@ -210,9 +221,9 @@
         [self.mazeState addObject:cellLabel];
     }
     
-//    do {
-//        [self.mazeState shuffle];
-//    } while (![self solvable]);
+    do {
+        [self.mazeState shuffle];
+    } while (![self solvable]);
 }
 
 - (BOOL)solvable {

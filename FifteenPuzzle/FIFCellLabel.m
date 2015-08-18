@@ -12,6 +12,8 @@ static const NSInteger maxDistance = 6;
 
 @implementation FIFCellLabel
 
+#pragma mark - View lifecycle
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -40,8 +42,12 @@ static const NSInteger maxDistance = 6;
     [self setTextAlignment:NSTextAlignmentCenter];
     [self setNumberOfLines:1];
     [self setAdjustsFontSizeToFitWidth:YES];
+    UIFont *font = [UIFont systemFontOfSize:self.font.pointSize + 2];
+    self.font = font;
     [self setUserInteractionEnabled:YES];
 }
+
+#pragma mark - Properties
 
 
 - (void)setNumber:(NSInteger)number {
@@ -52,12 +58,13 @@ static const NSInteger maxDistance = 6;
         [self setText:@""];
 }
 
+#pragma mark - Interface methods
+
 - (void)updateColorWithRealCellNumber:(NSInteger)realNumber {
     NSInteger distance = labs(((realNumber - 1) % 4) - ((self.number - 1) % 4)) + labs(((realNumber - 1) / 4) - ((self.number - 1) / 4));
     CGFloat red = (1.0 / maxDistance) * distance;
     CGFloat green = 1.0 - (1.0 / maxDistance) * distance;
     self.layer.backgroundColor = [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0].CGColor;
-//    self.backgroundColor = [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0];
 }
 
 

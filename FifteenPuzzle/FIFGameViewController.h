@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FIFMainScreenViewController : UIViewController
+@interface FIFGameViewController : UIViewController
 
 @end

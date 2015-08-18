@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4664A2031B8324D1009BE8FE /* UIView+FIFDesignableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4664A2021B8324D1009BE8FE /* UIView+FIFDesignableLayer.m */; };
+		4664A2071B832716009BE8FE /* FIFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4664A2061B832716009BE8FE /* FIFMainViewController.m */; };
+		4664A20A1B834778009BE8FE /* FIFHallOfFameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4664A2091B834778009BE8FE /* FIFHallOfFameViewController.m */; };
+		4664A20D1B834A85009BE8FE /* FIFStandingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4664A20C1B834A85009BE8FE /* FIFStandingsTableViewCell.m */; };
 		46A52EFB1B8221D500B82552 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A52EFA1B8221D500B82552 /* main.m */; };
 		46A52EFE1B8221D500B82552 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A52EFD1B8221D500B82552 /* AppDelegate.m */; };
 		46A52F041B8221D500B82552 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46A52F021B8221D500B82552 /* Main.storyboard */; };
@@ -14,7 +18,7 @@
 		46A52F091B8221D500B82552 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46A52F071B8221D500B82552 /* LaunchScreen.xib */; };
 		46A52F151B8221D500B82552 /* FifteenPuzzleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A52F141B8221D500B82552 /* FifteenPuzzleTests.m */; };
 		46A52F201B82232500B82552 /* FIFMazeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A52F1F1B82232500B82552 /* FIFMazeView.m */; };
-		46A52F231B82259E00B82552 /* FIFMainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A52F221B82259E00B82552 /* FIFMainScreenViewController.m */; };
+		46A52F231B82259E00B82552 /* FIFGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A52F221B82259E00B82552 /* FIFGameViewController.m */; };
 		46A52F261B8227A000B82552 /* NSMutableArray+FIFShuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A52F251B8227A000B82552 /* NSMutableArray+FIFShuffling.m */; };
 		46A52F2F1B82328000B82552 /* FIFCellLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A52F2E1B82328000B82552 /* FIFCellLabel.m */; };
 /* End PBXBuildFile section */
@@ -30,6 +34,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4664A2011B8324D1009BE8FE /* UIView+FIFDesignableLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FIFDesignableLayer.h"; sourceTree = "<group>"; };
+		4664A2021B8324D1009BE8FE /* UIView+FIFDesignableLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FIFDesignableLayer.m"; sourceTree = "<group>"; };
+		4664A2051B832716009BE8FE /* FIFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFMainViewController.h; sourceTree = "<group>"; };
+		4664A2061B832716009BE8FE /* FIFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFMainViewController.m; sourceTree = "<group>"; };
+		4664A2081B834778009BE8FE /* FIFHallOfFameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFHallOfFameViewController.h; sourceTree = "<group>"; };
+		4664A2091B834778009BE8FE /* FIFHallOfFameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFHallOfFameViewController.m; sourceTree = "<group>"; };
+		4664A20B1B834A85009BE8FE /* FIFStandingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFStandingsTableViewCell.h; sourceTree = "<group>"; };
+		4664A20C1B834A85009BE8FE /* FIFStandingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFStandingsTableViewCell.m; sourceTree = "<group>"; };
 		46A52EF51B8221D500B82552 /* FifteenPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FifteenPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A52EF91B8221D500B82552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46A52EFA1B8221D500B82552 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,8 +55,8 @@
 		46A52F141B8221D500B82552 /* FifteenPuzzleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FifteenPuzzleTests.m; sourceTree = "<group>"; };
 		46A52F1E1B82232500B82552 /* FIFMazeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFMazeView.h; sourceTree = "<group>"; };
 		46A52F1F1B82232500B82552 /* FIFMazeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFMazeView.m; sourceTree = "<group>"; };
-		46A52F211B82259E00B82552 /* FIFMainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFMainScreenViewController.h; sourceTree = "<group>"; };
-		46A52F221B82259E00B82552 /* FIFMainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFMainScreenViewController.m; sourceTree = "<group>"; };
+		46A52F211B82259E00B82552 /* FIFGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFGameViewController.h; sourceTree = "<group>"; };
+		46A52F221B82259E00B82552 /* FIFGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFGameViewController.m; sourceTree = "<group>"; };
 		46A52F241B8227A000B82552 /* NSMutableArray+FIFShuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+FIFShuffling.h"; sourceTree = "<group>"; };
 		46A52F251B8227A000B82552 /* NSMutableArray+FIFShuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+FIFShuffling.m"; sourceTree = "<group>"; };
 		46A52F2D1B82328000B82552 /* FIFCellLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFCellLabel.h; sourceTree = "<group>"; };
@@ -69,6 +81,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4664A1FE1B832052009BE8FE /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				46A52F241B8227A000B82552 /* NSMutableArray+FIFShuffling.h */,
+				46A52F251B8227A000B82552 /* NSMutableArray+FIFShuffling.m */,
+				4664A2011B8324D1009BE8FE /* UIView+FIFDesignableLayer.h */,
+				4664A2021B8324D1009BE8FE /* UIView+FIFDesignableLayer.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		4664A1FF1B83206F009BE8FE /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				46A52F1E1B82232500B82552 /* FIFMazeView.h */,
+				46A52F1F1B82232500B82552 /* FIFMazeView.m */,
+				46A52F2D1B82328000B82552 /* FIFCellLabel.h */,
+				46A52F2E1B82328000B82552 /* FIFCellLabel.m */,
+				4664A20B1B834A85009BE8FE /* FIFStandingsTableViewCell.h */,
+				4664A20C1B834A85009BE8FE /* FIFStandingsTableViewCell.m */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		4664A2001B83207B009BE8FE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4664A2051B832716009BE8FE /* FIFMainViewController.h */,
+				4664A2061B832716009BE8FE /* FIFMainViewController.m */,
+				46A52F211B82259E00B82552 /* FIFGameViewController.h */,
+				46A52F221B82259E00B82552 /* FIFGameViewController.m */,
+				4664A2081B834778009BE8FE /* FIFHallOfFameViewController.h */,
+				4664A2091B834778009BE8FE /* FIFHallOfFameViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		46A52EEC1B8221D500B82552 = {
 			isa = PBXGroup;
 			children = (
@@ -92,18 +141,12 @@
 			children = (
 				46A52EFC1B8221D500B82552 /* AppDelegate.h */,
 				46A52EFD1B8221D500B82552 /* AppDelegate.m */,
-				46A52F1E1B82232500B82552 /* FIFMazeView.h */,
-				46A52F1F1B82232500B82552 /* FIFMazeView.m */,
-				46A52F2D1B82328000B82552 /* FIFCellLabel.h */,
-				46A52F2E1B82328000B82552 /* FIFCellLabel.m */,
-				46A52F211B82259E00B82552 /* FIFMainScreenViewController.h */,
-				46A52F221B82259E00B82552 /* FIFMainScreenViewController.m */,
-				46A52F241B8227A000B82552 /* NSMutableArray+FIFShuffling.h */,
-				46A52F251B8227A000B82552 /* NSMutableArray+FIFShuffling.m */,
 				46A52F021B8221D500B82552 /* Main.storyboard */,
-				46A52F051B8221D500B82552 /* Images.xcassets */,
-				46A52F071B8221D500B82552 /* LaunchScreen.xib */,
+				4664A2001B83207B009BE8FE /* Controllers */,
+				4664A1FF1B83206F009BE8FE /* Custom Views */,
+				4664A1FE1B832052009BE8FE /* Categories */,
 				46A52EF81B8221D500B82552 /* Supporting Files */,
+				46A52F051B8221D500B82552 /* Images.xcassets */,
 			);
 			path = FifteenPuzzle;
 			sourceTree = "<group>";
@@ -113,6 +156,7 @@
 			children = (
 				46A52EF91B8221D500B82552 /* Info.plist */,
 				46A52EFA1B8221D500B82552 /* main.m */,
+				46A52F071B8221D500B82552 /* LaunchScreen.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -178,6 +222,7 @@
 		46A52EED1B8221D500B82552 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FIF;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Misha Babenko";
 				TargetAttributes = {
@@ -235,7 +280,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				46A52F261B8227A000B82552 /* NSMutableArray+FIFShuffling.m in Sources */,
-				46A52F231B82259E00B82552 /* FIFMainScreenViewController.m in Sources */,
+				4664A20A1B834778009BE8FE /* FIFHallOfFameViewController.m in Sources */,
+				46A52F231B82259E00B82552 /* FIFGameViewController.m in Sources */,
+				4664A2031B8324D1009BE8FE /* UIView+FIFDesignableLayer.m in Sources */,
+				4664A2071B832716009BE8FE /* FIFMainViewController.m in Sources */,
+				4664A20D1B834A85009BE8FE /* FIFStandingsTableViewCell.m in Sources */,
 				46A52F201B82232500B82552 /* FIFMazeView.m in Sources */,
 				46A52EFE1B8221D500B82552 /* AppDelegate.m in Sources */,
 				46A52EFB1B8221D500B82552 /* main.m in Sources */,
@@ -434,6 +483,7 @@
 				46A52F1A1B8221D500B82552 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		46A52F1B1B8221D500B82552 /* Build configuration list for PBXNativeTarget "FifteenPuzzleTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +492,7 @@
 				46A52F1D1B8221D500B82552 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
