@@ -24,5 +24,7 @@ IB_DESIGNABLE
 @property (nonatomic, weak) id<FIFMazeDelegate> delegate;
 
 - (void)resetMaze;
+- (NSArray *)getMaze;
+- (void)setMaze:(NSArray *)maze;
 
 @end

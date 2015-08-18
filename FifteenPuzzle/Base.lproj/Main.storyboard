@@ -175,7 +175,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a6-Ys-Jbl">
-                                <rect key="frame" x="141" y="191" width="133" height="63"/>
+                                <rect key="frame" x="141" y="190.5" width="133" height="62.5"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="50"/>
                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -183,8 +183,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IUS-4I-taU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3a6-Ys-Jbl" secondAttribute="bottom" id="5M2-xj-VJa"/>
+                            <constraint firstItem="IUS-4I-taU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3a6-Ys-Jbl" secondAttribute="bottom" constant="10" id="5M2-xj-VJa"/>
                             <constraint firstItem="SLp-Bh-mdZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="64e-qd-cOB"/>
+                            <constraint firstItem="3a6-Ys-Jbl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SLp-Bh-mdZ" secondAttribute="bottom" constant="10" id="7Ll-4X-axl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wXf-gm-XiK" secondAttribute="trailing" constant="20" id="BEd-tb-KNg"/>
                             <constraint firstItem="SLp-Bh-mdZ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="FMm-mG-3uB"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="IUS-4I-taU" secondAttribute="trailing" id="IOC-z8-vt6"/>
@@ -192,16 +193,17 @@
                             <constraint firstAttribute="centerY" secondItem="IUS-4I-taU" secondAttribute="centerY" priority="750" constant="-100" id="Kch-Vr-qYU"/>
                             <constraint firstItem="wXf-gm-XiK" firstAttribute="centerY" secondItem="SLp-Bh-mdZ" secondAttribute="centerY" id="QDO-IP-bcI"/>
                             <constraint firstItem="IUS-4I-taU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="QiK-k9-dr9"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IUS-4I-taU" secondAttribute="bottom" id="RlJ-bf-Qj3"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IUS-4I-taU" secondAttribute="bottom" constant="10" id="RlJ-bf-Qj3"/>
                             <constraint firstAttribute="centerX" secondItem="3a6-Ys-Jbl" secondAttribute="centerX" id="Sgm-Lb-D81"/>
                             <constraint firstAttribute="centerX" secondItem="IUS-4I-taU" secondAttribute="centerX" id="d92-jE-lmf"/>
                             <constraint firstItem="IUS-4I-taU" firstAttribute="top" secondItem="3a6-Ys-Jbl" secondAttribute="bottom" constant="40" id="giY-zt-Gdy"/>
-                            <constraint firstItem="IUS-4I-taU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wXf-gm-XiK" secondAttribute="bottom" id="hkW-Rf-ngV"/>
+                            <constraint firstItem="IUS-4I-taU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wXf-gm-XiK" secondAttribute="bottom" constant="10" id="hkW-Rf-ngV"/>
                             <constraint firstItem="wXf-gm-XiK" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="t3h-tv-jPS"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="KME-rr-l9t"/>
+                                <exclude reference="hkW-Rf-ngV"/>
                             </mask>
                         </variation>
                     </view>
@@ -230,12 +232,19 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbE-pe-mQt">
                                 <rect key="frame" x="36" y="40" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="KBj-Yc-Gt3"/>
+                                    <constraint firstAttribute="height" priority="751" constant="60" id="KBj-Yc-Gt3"/>
                                     <constraint firstAttribute="width" constant="60" id="OMo-BK-J3h"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="r91-on-oc0"/>
+                                    <constraint firstAttribute="width" secondItem="kbE-pe-mQt" secondAttribute="height" multiplier="1:1" id="y5I-Td-ela"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="OMo-BK-J3h"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="kOt-f9-19x" eventType="touchUpInside" id="GjA-BC-GEm"/>
                                 </connections>
@@ -243,25 +252,28 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="huu-Az-WJw">
                                 <rect key="frame" x="0.0" y="265" width="414" height="471"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="350" id="Okm-sP-FA6"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseID" rowHeight="66" id="zQ5-Cy-ZGf" customClass="FIFStandingsTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="reuseID" rowHeight="50" id="zQ5-Cy-ZGf" customClass="FIFStandingsTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zQ5-Cy-ZGf" id="pDJ-dC-voo">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPe-JT-4iI">
-                                                    <rect key="frame" x="23" y="13" width="283" height="40"/>
-                                                    <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="25"/>
-                                                    <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kU-dK-DH8">
-                                                    <rect key="frame" x="321" y="13" width="70" height="40"/>
+                                                    <rect key="frame" x="321" y="4.5" width="70" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="YDQ-DQ-UzU"/>
                                                         <constraint firstAttribute="height" constant="40" id="doZ-NJ-2O3"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="25"/>
+                                                    <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="IPe-JT-4iI">
+                                                    <rect key="frame" x="23" y="4" width="283" height="40"/>
                                                     <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="25"/>
                                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -288,8 +300,11 @@
                                     <outlet property="delegate" destination="kOt-f9-19x" id="9gt-zU-JlR"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top 5 Players" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUY-uG-3rS">
-                                <rect key="frame" x="29.5" y="140" width="355.5" height="75"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top 5 Players" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="QUY-uG-3rS">
+                                <rect key="frame" x="29" y="140" width="355.5" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="cnl-p4-QTm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="60"/>
                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -299,11 +314,16 @@
                         <constraints>
                             <constraint firstItem="huu-Az-WJw" firstAttribute="leading" secondItem="tIb-zE-Hge" secondAttribute="leading" id="3lo-79-HAe"/>
                             <constraint firstAttribute="centerX" secondItem="QUY-uG-3rS" secondAttribute="centerX" id="Aez-KR-zoR"/>
-                            <constraint firstItem="kbE-pe-mQt" firstAttribute="top" secondItem="00D-as-YD7" secondAttribute="bottom" constant="20" id="BEd-n3-YTZ"/>
-                            <constraint firstItem="QUY-uG-3rS" firstAttribute="top" secondItem="kbE-pe-mQt" secondAttribute="bottom" constant="40" id="GLA-IY-xUX"/>
+                            <constraint firstItem="kbE-pe-mQt" firstAttribute="top" secondItem="00D-as-YD7" secondAttribute="bottom" priority="750" constant="20" id="BEd-n3-YTZ"/>
+                            <constraint firstItem="QUY-uG-3rS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kbE-pe-mQt" secondAttribute="bottom" id="DUe-uj-z9J"/>
+                            <constraint firstItem="QUY-uG-3rS" firstAttribute="top" secondItem="kbE-pe-mQt" secondAttribute="bottom" priority="750" constant="40" id="GLA-IY-xUX"/>
+                            <constraint firstItem="QUY-uG-3rS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tIb-zE-Hge" secondAttribute="leadingMargin" id="QMK-Kp-RNV"/>
                             <constraint firstItem="kbE-pe-mQt" firstAttribute="leading" secondItem="tIb-zE-Hge" secondAttribute="leadingMargin" constant="20" id="bV7-ZA-38F"/>
+                            <constraint firstItem="huu-Az-WJw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QUY-uG-3rS" secondAttribute="bottom" id="ga0-Ii-sDe"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="QUY-uG-3rS" secondAttribute="trailing" id="ki5-Bo-fhm"/>
+                            <constraint firstItem="kbE-pe-mQt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="00D-as-YD7" secondAttribute="bottom" constant="10" id="mmf-qv-OAF"/>
                             <constraint firstItem="wRD-fo-Elx" firstAttribute="top" secondItem="huu-Az-WJw" secondAttribute="bottom" id="sPO-qU-qPv"/>
-                            <constraint firstItem="huu-Az-WJw" firstAttribute="top" secondItem="QUY-uG-3rS" secondAttribute="bottom" constant="50" id="w0c-zc-57f"/>
+                            <constraint firstItem="huu-Az-WJw" firstAttribute="top" secondItem="QUY-uG-3rS" secondAttribute="bottom" priority="750" constant="50" id="w0c-zc-57f"/>
                             <constraint firstAttribute="trailing" secondItem="huu-Az-WJw" secondAttribute="trailing" id="zUd-GU-jAh"/>
                         </constraints>
                     </view>

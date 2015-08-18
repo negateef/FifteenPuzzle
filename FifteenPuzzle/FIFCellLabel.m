@@ -7,8 +7,13 @@
 //
 
 #import "FIFCellLabel.h"
+#import "UIColorFromRGB.h"
 
-static const NSInteger maxDistance = 6;
+@interface FIFCellLabel ()
+
+@property (nonatomic, strong) NSDictionary *colors;
+
+@end
 
 @implementation FIFCellLabel
 
@@ -45,6 +50,13 @@ static const NSInteger maxDistance = 6;
     UIFont *font = [UIFont systemFontOfSize:self.font.pointSize + 2];
     self.font = font;
     [self setUserInteractionEnabled:YES];
+    self.colors = @{@(0): UIColorFromRGBHex(0x4caf50),
+                    @(1): UIColorFromRGBHex(0xcddc39),
+                    @(2): UIColorFromRGBHex(0xffeb3b),
+                    @(3): UIColorFromRGBHex(0xff9800),
+                    @(4): UIColorFromRGBHex(0xef6c00),
+                    @(5): UIColorFromRGBHex(0xf44336),
+                    @(6): UIColorFromRGBHex(0xb71c1c)};
 }
 
 #pragma mark - Properties
@@ -62,9 +74,7 @@ static const NSInteger maxDistance = 6;
 
 - (void)updateColorWithRealCellNumber:(NSInteger)realNumber {
     NSInteger distance = labs(((realNumber - 1) % 4) - ((self.number - 1) % 4)) + labs(((realNumber - 1) / 4) - ((self.number - 1) / 4));
-    CGFloat red = (1.0 / maxDistance) * distance;
-    CGFloat green = 1.0 - (1.0 / maxDistance) * distance;
-    self.layer.backgroundColor = [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0].CGColor;
+    self.layer.backgroundColor = ((UIColor *)self.colors[@(distance)]).CGColor;
 }
 
 

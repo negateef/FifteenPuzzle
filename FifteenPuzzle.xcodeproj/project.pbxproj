@@ -42,6 +42,7 @@
 		4664A2091B834778009BE8FE /* FIFHallOfFameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFHallOfFameViewController.m; sourceTree = "<group>"; };
 		4664A20B1B834A85009BE8FE /* FIFStandingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFStandingsTableViewCell.h; sourceTree = "<group>"; };
 		4664A20C1B834A85009BE8FE /* FIFStandingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFStandingsTableViewCell.m; sourceTree = "<group>"; };
+		4664A2121B836226009BE8FE /* UIColorFromRGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorFromRGB.h; sourceTree = "<group>"; };
 		46A52EF51B8221D500B82552 /* FifteenPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FifteenPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A52EF91B8221D500B82552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46A52EFA1B8221D500B82552 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 		4664A1FE1B832052009BE8FE /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				4664A2121B836226009BE8FE /* UIColorFromRGB.h */,
 				46A52F241B8227A000B82552 /* NSMutableArray+FIFShuffling.h */,
 				46A52F251B8227A000B82552 /* NSMutableArray+FIFShuffling.m */,
 				4664A2011B8324D1009BE8FE /* UIView+FIFDesignableLayer.h */,

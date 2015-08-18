@@ -179,6 +179,20 @@ static const CGFloat resetAnimationDuration = 1.0;
     [self animateCellsWithDuration:resetAnimationDuration];
 }
 
+- (NSArray *)getMaze {
+    NSMutableArray *state = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i < self.mazeState.count; i++) {
+        [state addObject:@([self.mazeState[i] number])];
+    }
+    return (NSArray *)state;
+}
+
+- (void)setMaze:(NSArray *)maze {
+    for (NSInteger i = 0; i < 16; i++)
+        [self.mazeState[i] setNumber:[maze[i] integerValue]];
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+}
 
 #pragma mark - Helper methods
 

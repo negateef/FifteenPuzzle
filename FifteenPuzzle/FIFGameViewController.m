@@ -18,6 +18,11 @@
 
 @end
 
+static NSString *const kCachedFileName = @"mazeState.data";
+
+static NSString *const kStepsKey = @"Steps";
+static NSString *const kMazeKey = @"Maze";
+
 @implementation FIFGameViewController
 
 #pragma mark - View lifecycle
@@ -26,9 +31,30 @@
     [super viewDidLoad];
     self.numberOfSteps = 0;
     [self.mazeView setDelegate:self];
-    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
     self.mazeView.backgroundColor = [UIColor clearColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSString *tempDirectory = NSTemporaryDirectory();
+    NSString *tempFile = [tempDirectory stringByAppendingPathComponent:kCachedFileName];
+    
+    NSDictionary *mazeState = [[NSDictionary alloc] initWithContentsOfFile:tempFile];
+    self.numberOfSteps = [mazeState[kStepsKey] integerValue];
+    [self.mazeView setMaze:mazeState[kMazeKey]];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    NSDictionary *mazeState = @{kStepsKey: @(self.numberOfSteps),
+                                kMazeKey: [self.mazeView getMaze]};
+    NSString *tempDirectory = NSTemporaryDirectory();
+    NSString *tempFile = [tempDirectory stringByAppendingPathComponent:kCachedFileName];
+    [mazeState writeToFile:tempFile atomically:YES];
 }
 
 #pragma mark - Properties

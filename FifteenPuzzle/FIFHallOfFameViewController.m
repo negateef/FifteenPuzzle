@@ -42,7 +42,7 @@ static const NSInteger numberOfPeople = 5;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FIFStandingsTableViewCell *cell = (FIFStandingsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"reuseID" forIndexPath:indexPath];
-    cell.nameLabel.text = [NSString stringWithFormat:@"%ld %@", (long)(indexPath.row + 1), @"Misha Babenko"];
+    cell.nameLabel.text = [NSString stringWithFormat:@"%ld. %@", (long)(indexPath.row + 1), @"Misha Babenko"];
     cell.scoreLabel.text = @"200";
     return cell;
 }
