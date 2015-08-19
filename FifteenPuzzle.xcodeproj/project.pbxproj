@@ -11,6 +11,10 @@
 		4664A2071B832716009BE8FE /* FIFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4664A2061B832716009BE8FE /* FIFMainViewController.m */; };
 		4664A20A1B834778009BE8FE /* FIFHallOfFameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4664A2091B834778009BE8FE /* FIFHallOfFameViewController.m */; };
 		4664A20D1B834A85009BE8FE /* FIFStandingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4664A20C1B834A85009BE8FE /* FIFStandingsTableViewCell.m */; };
+		4664A2161B83679C009BE8FE /* FIFPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4664A2141B83679C009BE8FE /* FIFPopupViewController.m */; };
+		4664A2171B83679C009BE8FE /* FIFPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4664A2151B83679C009BE8FE /* FIFPopupViewController.xib */; };
+		4664A21A1B848313009BE8FE /* FIFStandingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4664A2191B848313009BE8FE /* FIFStandingsManager.m */; };
+		4664A21D1B84AB5C009BE8FE /* FIFAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4664A21C1B84AB5C009BE8FE /* FIFAboutViewController.m */; };
 		46A52EFB1B8221D500B82552 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A52EFA1B8221D500B82552 /* main.m */; };
 		46A52EFE1B8221D500B82552 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A52EFD1B8221D500B82552 /* AppDelegate.m */; };
 		46A52F041B8221D500B82552 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46A52F021B8221D500B82552 /* Main.storyboard */; };
@@ -43,6 +47,13 @@
 		4664A20B1B834A85009BE8FE /* FIFStandingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFStandingsTableViewCell.h; sourceTree = "<group>"; };
 		4664A20C1B834A85009BE8FE /* FIFStandingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFStandingsTableViewCell.m; sourceTree = "<group>"; };
 		4664A2121B836226009BE8FE /* UIColorFromRGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorFromRGB.h; sourceTree = "<group>"; };
+		4664A2131B83679C009BE8FE /* FIFPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFPopupViewController.h; sourceTree = "<group>"; };
+		4664A2141B83679C009BE8FE /* FIFPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFPopupViewController.m; sourceTree = "<group>"; };
+		4664A2151B83679C009BE8FE /* FIFPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FIFPopupViewController.xib; sourceTree = "<group>"; };
+		4664A2181B848313009BE8FE /* FIFStandingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFStandingsManager.h; sourceTree = "<group>"; };
+		4664A2191B848313009BE8FE /* FIFStandingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFStandingsManager.m; sourceTree = "<group>"; };
+		4664A21B1B84AB5C009BE8FE /* FIFAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFAboutViewController.h; sourceTree = "<group>"; };
+		4664A21C1B84AB5C009BE8FE /* FIFAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFAboutViewController.m; sourceTree = "<group>"; };
 		46A52EF51B8221D500B82552 /* FifteenPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FifteenPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A52EF91B8221D500B82552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46A52EFA1B8221D500B82552 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,6 +127,13 @@
 				46A52F221B82259E00B82552 /* FIFGameViewController.m */,
 				4664A2081B834778009BE8FE /* FIFHallOfFameViewController.h */,
 				4664A2091B834778009BE8FE /* FIFHallOfFameViewController.m */,
+				4664A2131B83679C009BE8FE /* FIFPopupViewController.h */,
+				4664A2141B83679C009BE8FE /* FIFPopupViewController.m */,
+				4664A2151B83679C009BE8FE /* FIFPopupViewController.xib */,
+				4664A2181B848313009BE8FE /* FIFStandingsManager.h */,
+				4664A2191B848313009BE8FE /* FIFStandingsManager.m */,
+				4664A21B1B84AB5C009BE8FE /* FIFAboutViewController.h */,
+				4664A21C1B84AB5C009BE8FE /* FIFAboutViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +282,7 @@
 				46A52F041B8221D500B82552 /* Main.storyboard in Resources */,
 				46A52F091B8221D500B82552 /* LaunchScreen.xib in Resources */,
 				46A52F061B8221D500B82552 /* Images.xcassets in Resources */,
+				4664A2171B83679C009BE8FE /* FIFPopupViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +307,10 @@
 				4664A2071B832716009BE8FE /* FIFMainViewController.m in Sources */,
 				4664A20D1B834A85009BE8FE /* FIFStandingsTableViewCell.m in Sources */,
 				46A52F201B82232500B82552 /* FIFMazeView.m in Sources */,
+				4664A21A1B848313009BE8FE /* FIFStandingsManager.m in Sources */,
 				46A52EFE1B8221D500B82552 /* AppDelegate.m in Sources */,
+				4664A21D1B84AB5C009BE8FE /* FIFAboutViewController.m in Sources */,
+				4664A2161B83679C009BE8FE /* FIFPopupViewController.m in Sources */,
 				46A52EFB1B8221D500B82552 /* main.m in Sources */,
 				46A52F2F1B82328000B82552 /* FIFCellLabel.m in Sources */,
 			);

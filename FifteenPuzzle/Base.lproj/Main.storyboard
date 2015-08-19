@@ -90,6 +90,9 @@
                                         <color key="value" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Yqa-Hq-tad" kind="presentation" modalTransitionStyle="flipHorizontal" id="IVe-ow-OUu"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puzzle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPz-de-qcF">
                                 <rect key="frame" x="195" y="140" width="150.5" height="62.5"/>
@@ -122,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSf-Vx-6J5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="436" y="372"/>
+            <point key="canvasLocation" x="964" y="304"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -215,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079" y="372"/>
+            <point key="canvasLocation" x="96" y="1304"/>
         </scene>
         <!--Hall Of Fame View Controller-->
         <scene sceneID="YTO-OW-8yN">
@@ -334,7 +337,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bj3-n3-KjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079" y="1242"/>
+            <point key="canvasLocation" x="711" y="1304"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="nUx-8V-swB">
+            <objects>
+                <viewController id="Yqa-Hq-tad" customClass="FIFAboutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qZV-ce-NpH"/>
+                        <viewControllerLayoutGuide type="bottom" id="uK7-5X-99q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pn3-h4-7YJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ISi-YH-F9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1349" y="1226"/>
         </scene>
     </scenes>
     <resources>

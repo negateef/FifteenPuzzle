@@ -232,6 +232,11 @@ static const CGFloat resetAnimationDuration = 1.0;
         }
         FIFCellLabel *cellLabel = [[FIFCellLabel alloc] init];
         cellLabel.number = -1;
+        
+        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cellTapped:)];
+        [cellLabel addGestureRecognizer:tapRecognizer];
+        
+        
         [self.mazeState addObject:cellLabel];
     }
     

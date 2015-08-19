@@ -8,6 +8,7 @@
 
 #import "FIFHallOfFameViewController.h"
 #import "FIFStandingsTableViewCell.h"
+#import "FIFStandingsManager.h"
 
 
 @interface FIFHallOfFameViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -42,8 +43,18 @@ static const NSInteger numberOfPeople = 5;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FIFStandingsTableViewCell *cell = (FIFStandingsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"reuseID" forIndexPath:indexPath];
-    cell.nameLabel.text = [NSString stringWithFormat:@"%ld. %@", (long)(indexPath.row + 1), @"Misha Babenko"];
-    cell.scoreLabel.text = @"200";
+    
+    NSInteger numberOfPeople = [[FIFStandingsManager sharedManager] currentNumberOfPeople];
+    
+    if (numberOfPeople > indexPath.row) {
+        NSString *name = [[FIFStandingsManager sharedManager] getNameOfPersonOnPosition:indexPath.row];
+        NSInteger numberOfSteps = [[FIFStandingsManager sharedManager] getNumberOfStepsOfPersonOnPosition:indexPath.row];
+        cell.nameLabel.text = [NSString stringWithFormat:@"%ld. %@", (long)(indexPath.row + 1), name];
+        cell.scoreLabel.text = [NSString stringWithFormat:@"%ld", (long)numberOfSteps];
+    } else {
+        cell.nameLabel.text = [NSString stringWithFormat:@"%ld. ??????", (long)(indexPath.row + 1)];
+        cell.scoreLabel.text = @"???";
+    }
     return cell;
 }
 

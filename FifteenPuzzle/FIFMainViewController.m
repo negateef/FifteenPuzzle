@@ -7,6 +7,7 @@
 //
 
 #import "FIFMainViewController.h"
+#import "FIFStandingsManager.h"
 
 @implementation FIFMainViewController
 
@@ -15,6 +16,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[FIFStandingsManager sharedManager] setMaxNumberOfPeople:5];
 }
 
 @end

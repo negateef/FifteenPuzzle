@@ -8,13 +8,18 @@
 
 #import "FIFGameViewController.h"
 #import "FIFMazeView.h"
+#import "FIFPopupViewController.h"
+#import "FIFStandingsManager.h"
 
 
-@interface FIFGameViewController ()<FIFMazeDelegate, UIAlertViewDelegate>
+@interface FIFGameViewController ()<FIFMazeDelegate, FIFPopupViewControllerDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet FIFMazeView *mazeView;
 @property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
 @property (nonatomic, assign) NSInteger numberOfSteps;
+
+@property (nonatomic, strong) FIFPopupViewController *popup;
+@property (nonatomic, strong) UIVisualEffectView *blurredView;
 
 @end
 
@@ -33,18 +38,38 @@ static NSString *const kMazeKey = @"Maze";
     [self.mazeView setDelegate:self];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
     self.mazeView.backgroundColor = [UIColor clearColor];
+    
+    self.popup = [[FIFPopupViewController alloc] init];
+    [self addChildViewController:self.popup];
+    
+    CGRect popupFrame = self.popup.view.frame;
+    popupFrame.origin = CGPointMake((self.view.frame.size.width - popupFrame.size.width) / 2.0, 100);
+    self.popup.view.frame = popupFrame;
+    self.popup.delegate = self;
+    
+    UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    self.blurredView = [[UIVisualEffectView alloc] initWithEffect:effect];
+    self.blurredView.frame = self.view.frame;
+    self.blurredView.hidden = YES;
+    self.popup.view.alpha = 0.0;
+    
+    [self.view addSubview:self.blurredView];
+    [self.view addSubview:self.popup.view];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    NSString *tempDirectory = NSTemporaryDirectory();
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *tempDirectory = [paths firstObject];
     NSString *tempFile = [tempDirectory stringByAppendingPathComponent:kCachedFileName];
     
     NSDictionary *mazeState = [[NSDictionary alloc] initWithContentsOfFile:tempFile];
-    self.numberOfSteps = [mazeState[kStepsKey] integerValue];
-    [self.mazeView setMaze:mazeState[kMazeKey]];
-    
+    if (mazeState) {
+        self.numberOfSteps = [mazeState[kStepsKey] integerValue];
+        [self.mazeView setMaze:mazeState[kMazeKey]];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -52,7 +77,8 @@ static NSString *const kMazeKey = @"Maze";
     
     NSDictionary *mazeState = @{kStepsKey: @(self.numberOfSteps),
                                 kMazeKey: [self.mazeView getMaze]};
-    NSString *tempDirectory = NSTemporaryDirectory();
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *tempDirectory = [paths firstObject];
     NSString *tempFile = [tempDirectory stringByAppendingPathComponent:kCachedFileName];
     [mazeState writeToFile:tempFile atomically:YES];
 }
@@ -78,13 +104,16 @@ static NSString *const kMazeKey = @"Maze";
 #pragma mark - FIFMaze Delegate
 
 - (void)mazeCompleted {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Congratulations!"
-                                                        message:[NSString stringWithFormat:@"You solved 15-Puzzle game with %ld steps", (long)self.numberOfSteps]
-                                                       delegate:self
-                                              cancelButtonTitle:@"Done"
-                                              otherButtonTitles:nil];
-    
-    [alertView show];
+    if ([[FIFStandingsManager sharedManager] willEnterStandingsWithNumberOfSteps:self.numberOfSteps])
+        [self showPopup];
+    else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Congratulations!"
+                                                            message:[NSString stringWithFormat:@"You finished the maze with %ld steps!", (long)self.numberOfSteps]
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 - (void)mazeChanged {
@@ -92,13 +121,44 @@ static NSString *const kMazeKey = @"Maze";
 }
 
 
-#pragma mark - UIAlertView delegate
+#pragma mark - FIFPopupViewControllerDelegate
+
+- (void)popupCancelled {
+    [self hidePopup];
+}
+
+- (void)popupDoneWithName:(NSString *)name {
+    [[FIFStandingsManager sharedManager] addPersonWithName:name andNumberOfSteps:self.numberOfSteps];
+    [self hidePopup];
+}
+
+#pragma mark - UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == alertView.cancelButtonIndex) {
         self.numberOfSteps = 0;
         [self.mazeView resetMaze];
     }
+}
+
+#pragma mark - Helper methods
+
+- (void)showPopup {
+    self.blurredView.hidden = NO;
+    self.blurredView.alpha = 1.0;
+    [UIView animateWithDuration:1.0 animations:^{
+        self.popup.view.alpha = 1.0;
+    }];
+}
+
+- (void)hidePopup {
+    self.blurredView.hidden = YES;
+    [UIView animateWithDuration:1.0 animations:^{
+        self.popup.view.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        self.numberOfSteps = 0;
+        [self.mazeView resetMaze];
+    }];
 }
 
 @end
