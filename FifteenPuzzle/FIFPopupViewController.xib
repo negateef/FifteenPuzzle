@@ -18,13 +18,13 @@
             <rect key="frame" x="0.0" y="0.0" width="350" height="286"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpS-rn-6tr">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="GpS-rn-6tr">
                     <rect key="frame" x="80" y="20" width="190" height="31.5"/>
                     <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="25"/>
                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are in the Hall Of Fame!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZg-ch-b97">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are in the Hall Of Fame!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="dZg-ch-b97">
                     <rect key="frame" x="18" y="61" width="313.5" height="31.5"/>
                     <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="25"/>
                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,7 +67,7 @@
                         <action selector="okButtonTapped:" destination="-1" eventType="touchUpInside" id="FYa-15-ll7"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcJ-5A-Lx0">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="xcJ-5A-Lx0">
                     <rect key="frame" x="78" y="108" width="194" height="31.5"/>
                     <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="25"/>
                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,13 +102,19 @@
                 <constraint firstItem="1CD-XP-i7J" firstAttribute="top" secondItem="dZg-ch-b97" secondAttribute="bottom" constant="57.5" id="9Rn-kP-tG7"/>
                 <constraint firstAttribute="centerX" secondItem="pcY-si-ZqP" secondAttribute="centerX" id="9VB-Ku-dLv"/>
                 <constraint firstItem="1CD-XP-i7J" firstAttribute="centerX" secondItem="xcJ-5A-Lx0" secondAttribute="centerX" id="Ao6-tu-H9s"/>
+                <constraint firstItem="dZg-ch-b97" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="D0h-ce-mSh"/>
+                <constraint firstItem="Wbf-wI-fNN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GpS-rn-6tr" secondAttribute="trailing" id="G6S-bN-Uk9"/>
                 <constraint firstItem="dZg-ch-b97" firstAttribute="top" secondItem="GpS-rn-6tr" secondAttribute="bottom" constant="10" id="Jmc-d4-1bX"/>
                 <constraint firstAttribute="centerX" secondItem="GpS-rn-6tr" secondAttribute="centerX" id="PIM-kL-KCW"/>
                 <constraint firstAttribute="centerX" secondItem="dZg-ch-b97" secondAttribute="centerX" id="QKZ-6u-u9m"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xcJ-5A-Lx0" secondAttribute="trailing" id="QOA-JS-NT1"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dZg-ch-b97" secondAttribute="trailing" id="TYf-3g-M3Q"/>
                 <constraint firstItem="pcY-si-ZqP" firstAttribute="top" secondItem="1CD-XP-i7J" secondAttribute="bottom" constant="30" id="cZ0-QR-EM8"/>
                 <constraint firstAttribute="centerX" secondItem="1CD-XP-i7J" secondAttribute="centerX" id="dXM-bz-ebB"/>
                 <constraint firstItem="1CD-XP-i7J" firstAttribute="top" secondItem="xcJ-5A-Lx0" secondAttribute="bottom" constant="10" id="f2I-1P-Bf3"/>
                 <constraint firstAttribute="trailing" secondItem="Wbf-wI-fNN" secondAttribute="trailing" constant="5" id="gvr-Nf-cMx"/>
+                <constraint firstItem="GpS-rn-6tr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="koC-mM-FIF"/>
+                <constraint firstItem="xcJ-5A-Lx0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="twl-xp-XL8"/>
                 <constraint firstItem="GpS-rn-6tr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="yTe-Fg-9au"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

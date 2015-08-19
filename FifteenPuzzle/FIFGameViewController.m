@@ -43,14 +43,14 @@ static NSString *const kMazeKey = @"Maze";
     [self addChildViewController:self.popup];
     
     CGRect popupFrame = self.popup.view.frame;
-    popupFrame.origin = CGPointMake((self.view.frame.size.width - popupFrame.size.width) / 2.0, 100);
+    popupFrame.origin = CGPointMake((self.view.frame.size.width - popupFrame.size.width) / 2.0, (self.view.frame.size.height - popupFrame.size.height) / 2.0);
     self.popup.view.frame = popupFrame;
     self.popup.delegate = self;
     
     UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     self.blurredView = [[UIVisualEffectView alloc] initWithEffect:effect];
     self.blurredView.frame = self.view.frame;
-    self.blurredView.hidden = YES;
+    self.blurredView.alpha = 0.0;
     self.popup.view.alpha = 0.0;
     
     [self.view addSubview:self.blurredView];
@@ -70,6 +70,15 @@ static NSString *const kMazeKey = @"Maze";
         self.numberOfSteps = [mazeState[kStepsKey] integerValue];
         [self.mazeView setMaze:mazeState[kMazeKey]];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -99,6 +108,25 @@ static NSString *const kMazeKey = @"Maze";
 
 - (IBAction)backButtonTapped:(id)sender {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)keyboardWillShow:(NSNotification *)note {
+    CGFloat keyboardY = [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
+    CGRect newFrame = self.popup.view.frame;
+    if (newFrame.origin.y + newFrame.size.height > keyboardY) {
+        newFrame.origin.y = keyboardY - newFrame.size.height;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.popup.view.frame = newFrame;
+        }];
+    }
+}
+
+- (void)keyboardWillHide:(NSNotification *)note {
+    CGRect popupFrame = self.popup.view.frame;
+    popupFrame.origin = CGPointMake((self.view.frame.size.width - popupFrame.size.width) / 2.0, (self.view.frame.size.height - popupFrame.size.height) / 2.0);
+    [UIView animateWithDuration:0.3 animations:^{
+        self.popup.view.frame = popupFrame;
+    }];
 }
 
 #pragma mark - FIFMaze Delegate
@@ -144,16 +172,15 @@ static NSString *const kMazeKey = @"Maze";
 #pragma mark - Helper methods
 
 - (void)showPopup {
-    self.blurredView.hidden = NO;
-    self.blurredView.alpha = 1.0;
     [UIView animateWithDuration:1.0 animations:^{
+        self.blurredView.alpha = 1.0;
         self.popup.view.alpha = 1.0;
     }];
 }
 
 - (void)hidePopup {
-    self.blurredView.hidden = YES;
     [UIView animateWithDuration:1.0 animations:^{
+        self.blurredView.alpha = 0.0;
         self.popup.view.alpha = 0.0;
     } completion:^(BOOL finished) {
         self.numberOfSteps = 0;
