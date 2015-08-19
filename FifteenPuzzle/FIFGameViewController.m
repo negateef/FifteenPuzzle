@@ -182,10 +182,9 @@ static NSString *const kMazeKey = @"Maze";
     [UIView animateWithDuration:1.0 animations:^{
         self.blurredView.alpha = 0.0;
         self.popup.view.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        self.numberOfSteps = 0;
-        [self.mazeView resetMaze];
     }];
+    self.numberOfSteps = 0;
+    [self.mazeView resetMaze];
 }
 
 @end
