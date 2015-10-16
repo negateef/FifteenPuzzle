@@ -29,6 +29,7 @@ static const CGFloat resetAnimationDuration = 1.0;
     if (self) {
         [self generateMaze];
         [self customInit];
+        
     }
     
     return self;
